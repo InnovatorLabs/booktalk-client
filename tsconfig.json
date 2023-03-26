@@ -26,7 +26,14 @@
     ],
     "baseUrl": "./",
     "paths": {
-      "@/*": ["src/*"]
+      "@components/*": ["src/components/*"],
+      "@context/*": ["src/context/*"],
+      "@hooks/*": ["src/hooks/*"],
+      "@model/*": ["src/model/*"],
+      "@pages/*": ["src/pages/*"],
+      "@service/*": ["src/service/*"],
+      "@types/*": ["src/types/*"],
+      "@util/*": ["src/util/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

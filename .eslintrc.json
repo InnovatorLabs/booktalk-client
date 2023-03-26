@@ -16,17 +16,6 @@
   ],
   "plugins": ["eslint-plugin-import", "prettier"],
   "rules": {
-    "react/function-component-definition": [
-      2,
-      {
-        "unnamedComponents": "arrow-function"
-      }
-    ],
-    "react/jsx-filename-extension": [0],
-    "react/react-in-jsx-scope": [0],
-    "react/jsx-props-no-spreading": [0],
-    "import/prefer-default-export": [0],
-    "arrow-body-style": [0],
     "import/order": [
       "error",
       {
@@ -45,28 +34,64 @@
             "pattern": "react*",
             "group": "external",
             "position": "before"
+          },
+          {
+            "pattern": "@components/*",
+            "group": "internal",
+            "position": "after"
+          },
+          {
+            "pattern": "@context/*",
+            "group": "internal",
+            "position": "after"
+          },
+          {
+            "pattern": "@hooks/*",
+            "group": "internal",
+            "position": "after"
+          },
+          {
+            "pattern": "@model/*",
+            "group": "internal",
+            "position": "after"
+          },
+          {
+            "pattern": "@pages/*",
+            "group": "internal",
+            "position": "after"
+          },
+          {
+            "pattern": "@service/*",
+            "group": "internal",
+            "position": "after"
+          },
+          {
+            "pattern": "@types/*",
+            "group": "internal",
+            "position": "after"
+          },
+          {
+            "pattern": "@util/*",
+            "group": "internal",
+            "position": "after"
           }
-          // {
-          //   "pattern": "@hooks/*",
-          //   "group": "internal",
-          //   "position": "after"
-          // },
-          // {
-          //   "pattern": "@pages/*",
-          //   "group": "internal",
-          //   "position": "after"
-          // },
-          // {
-          //   "pattern": "@components/*",
-          //   "group": "internal",
-          //   "position": "after"
-          // }
         ],
         "pathGroupsExcludedImportTypes": ["react"],
         "alphabetize": {
           "order": "asc"
         }
       }
-    ]
+    ],
+    "react/function-component-definition": [
+      2,
+      {
+        "unnamedComponents": "arrow-function"
+      }
+    ],
+    "react/jsx-filename-extension": [0],
+    "react/react-in-jsx-scope": [0],
+    "react/jsx-props-no-spreading": [0],
+    "import/prefer-default-export": [0],
+    "arrow-body-style": [0]
   }
 }
