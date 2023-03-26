@@ -1,3 +1,72 @@
 {
-  "extends": "next/core-web-vitals"
+  "parserOptions": {
+    "project": ["tsconfig.json"]
+  },
+  "settings": {
+    "import/resolver": {
+      "typescript": {}
+    }
+  },
+  "extends": [
+    "airbnb",
+    "airbnb-typescript",
+    "airbnb/hooks",
+    "prettier",
+    "next/core-web-vitals"
+  ],
+  "plugins": ["eslint-plugin-import", "prettier"],
+  "rules": {
+    "react/function-component-definition": [
+      2,
+      {
+        "unnamedComponents": "arrow-function"
+      }
+    ],
+    "react/jsx-filename-extension": [0],
+    "react/react-in-jsx-scope": [0],
+    "react/jsx-props-no-spreading": [0],
+    "import/prefer-default-export": [0],
+    "arrow-body-style": [0],
+    "import/order": [
+      "error",
+      {
+        "groups": [
+          "type",
+          "builtin",
+          "external",
+          "internal",
+          "parent",
+          "sibling",
+          "index",
+          "unknown"
+        ],
+        "pathGroups": [
+          {
+            "pattern": "react*",
+            "group": "external",
+            "position": "before"
+          }
+          // {
+          //   "pattern": "@hooks/*",
+          //   "group": "internal",
+          //   "position": "after"
+          // },
+          // {
+          //   "pattern": "@pages/*",
+          //   "group": "internal",
+          //   "position": "after"
+          // },
+          // {
+          //   "pattern": "@components/*",
+          //   "group": "internal",
+          //   "position": "after"
+          // }
+        ],
+        "pathGroupsExcludedImportTypes": ["react"],
+        "alphabetize": {
+          "order": "asc"
+        }
+      }
+    ]
+  }
 }
