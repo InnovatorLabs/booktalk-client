@@ -14,26 +14,13 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "noImplicitAny": true,
-    "strictNullChecks": true,
-    "allowSyntheticDefaultImports": true,
-    "noFallthroughCasesInSwitch": true,
-    "sourceMap": true,
     "plugins": [
       {
         "name": "next"
       }
     ],
-    "baseUrl": "./",
     "paths": {
-      "@components/*": ["src/components/*"],
-      "@context/*": ["src/context/*"],
-      "@hooks/*": ["src/hooks/*"],
-      "@model/*": ["src/model/*"],
-      "@pages/*": ["src/pages/*"],
-      "@service/*": ["src/service/*"],
-      "@types/*": ["src/types/*"],
-      "@util/*": ["src/util/*"]
+      "@/*": ["./src/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

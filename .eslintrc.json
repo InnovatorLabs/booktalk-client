@@ -2,11 +2,6 @@
   "parserOptions": {
     "project": ["tsconfig.json"]
   },
-  "settings": {
-    "import/resolver": {
-      "typescript": {}
-    }
-  },
   "extends": [
     "airbnb",
     "airbnb-typescript",
@@ -14,74 +9,8 @@
     "prettier",
     "next/core-web-vitals"
   ],
-  "plugins": ["eslint-plugin-import", "prettier"],
+  "plugins": ["import", "prettier"],
   "rules": {
-    "import/order": [
-      "error",
-      {
-        "groups": [
-          "type",
-          "builtin",
-          "external",
-          "internal",
-          "parent",
-          "sibling",
-          "index",
-          "unknown"
-        ],
-        "pathGroups": [
-          {
-            "pattern": "react*",
-            "group": "external",
-            "position": "before"
-          },
-          {
-            "pattern": "@components/*",
-            "group": "internal",
-            "position": "after"
-          },
-          {
-            "pattern": "@context/*",
-            "group": "internal",
-            "position": "after"
-          },
-          {
-            "pattern": "@hooks/*",
-            "group": "internal",
-            "position": "after"
-          },
-          {
-            "pattern": "@model/*",
-            "group": "internal",
-            "position": "after"
-          },
-          {
-            "pattern": "@pages/*",
-            "group": "internal",
-            "position": "after"
-          },
-          {
-            "pattern": "@service/*",
-            "group": "internal",
-            "position": "after"
-          },
-          {
-            "pattern": "@types/*",
-            "group": "internal",
-            "position": "after"
-          },
-          {
-            "pattern": "@util/*",
-            "group": "internal",
-            "position": "after"
-          }
-        ],
-        "pathGroupsExcludedImportTypes": ["react"],
-        "alphabetize": {
-          "order": "asc"
-        }
-      }
-    ],
     "react/function-component-definition": [
       2,
       {
