@@ -5,5 +5,22 @@
 html,
 body {
   max-width: 100vw;
+  height: 100%;
   overflow-x: hidden;
+}
+
+a {
+  @apply p-3 rounded-full hover:brightness-110;
+}
+
+button[type='submit'] {
+  @apply hover:brightness-110 bg-[#89CFF0] text-white;
+}
+
+button[type='button'] {
+  @apply flex justify-center items-center;
+}
+
+li {
+  @apply list-none cursor-pointer;
 }

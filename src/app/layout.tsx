@@ -1,6 +1,6 @@
-import { Open_Sans } from 'next/font/google';
-
 import './globals.css';
+import { Open_Sans } from 'next/font/google';
+import Navbar from '@/components/Navbar';
 
 const openSans = Open_Sans({ subsets: ['latin'] });
 
@@ -16,7 +16,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={openSans.className}>
-      <body>{children}</body>
+      <body className="w-full overflow-auto">
+        <header className="sticky h-[64px] top-0 z-10 bg-white border-b opacity-90">
+          <Navbar />
+        </header>
+        <main className="flex flex-col w-full h-[calc(100%-64px)] max-w-screen-2xl mx-auto">
+          {children}
+        </main>
+      </body>
     </html>
   );
 }

@@ -1,3 +1,5 @@
 export default function Home() {
-  return <div className="text-3xl font-bold">Home</div>;
+  return (
+    <section className="flex flex-1 justify-center bg-slate-100">Main</section>
+  );
 }

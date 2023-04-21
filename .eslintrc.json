@@ -3,10 +3,10 @@
     "project": ["tsconfig.json"]
   },
   "extends": [
-    "airbnb",
-    "airbnb-typescript",
-    "airbnb/hooks",
-    "prettier",
+    // "airbnb",
+    // "airbnb-typescript",
+    // "airbnb/hooks",
+    // "prettier",
     "next/core-web-vitals"
   ],
   "plugins": ["import", "prettier"],
@@ -21,6 +21,8 @@
     "react/react-in-jsx-scope": [0],
     "react/jsx-props-no-spreading": [0],
     "import/prefer-default-export": [0],
-    "arrow-body-style": [0]
+    "arrow-body-style": [0],
+    "react/no-unescaped-entities": "off",
+    "@next/next/no-page-custom-font": "off"
   }
 }
