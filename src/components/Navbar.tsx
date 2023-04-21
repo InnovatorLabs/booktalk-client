@@ -22,19 +22,21 @@ export default function Navbar() {
   const pathName = usePathname();
 
   return (
-    <div className="flex justify-between items-center px-6">
-      <section className="flex">
+    <div className="flex h-full justify-between items-center px-6">
+      <section className="flex h-full">
         <Link href="/" className="flex items-center">
           <h1 className="text-2xl font-bold">BookTok</h1>
         </Link>
-        <nav>
-          <ul className="flex gap-8 p-4 ml-10">
+        <nav className="flex">
+          <ul className="flex h-full gap-8 ml-10">
             {menu.map(item => (
-              <li
-                key={item.href}
-                className={pathName === item.href ? 'font-bold' : 'font-normal'}
-              >
+              <li key={item.href} className="relative flex h-full items-center">
                 <Link href={item.href}>{item.name}</Link>
+                {pathName === item.href ? (
+                  <div className="absolute bottom-0 w-full h-[4px] bg-[#89CFF0] rounded-t-xl" />
+                ) : (
+                  <></>
+                )}
               </li>
             ))}
             {/* <li>
