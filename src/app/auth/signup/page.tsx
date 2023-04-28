@@ -3,9 +3,21 @@
 import React from 'react';
 import { useRouter } from 'next/navigation';
 import { TextField, InputAdornment } from '@mui/material';
+import styled from '@emotion/styled';
+
+const STEP_LEVEL = 4;
+
+const STEP_VALUE = {
+  1: 1 / STEP_LEVEL,
+  2: 2 / STEP_LEVEL,
+  3: 3 / STEP_LEVEL,
+  4: 4 / STEP_LEVEL,
+};
 
 export default function SignupPage() {
   const router = useRouter();
+
+  const [step, setStep] = React.useState(STEP_VALUE[1]);
 
   const handleFormChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -14,9 +26,13 @@ export default function SignupPage() {
   return (
     <section className="flex justify-center py-28">
       <div className="w-2/5 border shadow rounded-md">
-        <p className="flex justify-center items-center h-[64px] font-bold border-b">
+        <p className="flex justify-center items-center h-[64px] font-bold">
           회원가입
         </p>
+        <div className="relative w-full">
+          <div className="absolute w-full h-[6px] bg-slate-100" />
+          <ProgerssBar value={step} />
+        </div>
         <div className="px-8 py-6">
           <article className="flex flex-col gap-3">
             <p className="font-semibold">
@@ -44,3 +60,12 @@ export default function SignupPage() {
     </section>
   );
 }
+
+const ProgerssBar = styled.div<{ value: number }>`
+  position: absolute;
+  width: 100%;
+  background-color: #141414;
+  height: 6px;
+  transform: scaleX(${props => props.value});
+  transform-origin: center left;
+`;

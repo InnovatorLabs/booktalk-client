@@ -50,7 +50,7 @@ export default function Navbar() {
         </nav>
       </section>
       <Link
-        className="bg-[#89CFF0] text-white py-1 px-5 rounded"
+        className="bg-[#89CFF0] text-white py-2 px-6 rounded"
         href="/auth/login"
       >
         로그인

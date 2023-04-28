@@ -10,7 +10,7 @@ body {
 }
 
 a {
-  @apply p-3 rounded-full hover:brightness-110;
+  @apply p-3 rounded-full;
 }
 
 button[type='submit'] {
@@ -23,4 +23,8 @@ button[type='button'] {
 
 li {
   @apply list-none cursor-pointer;
+}
+
+h1 {
+  @apply text-xl font-bold;
 }

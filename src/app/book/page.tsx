@@ -1,14 +1,14 @@
 import Hero from '@/components/Hero';
-import FeaturedPosts from '@/components/FeaturedPosts';
-import { getAllPosts } from '@/service/posts';
+import BookContent from '@/components/BookContent';
+import { getAllBooks } from '@/service/books';
 
 export default async function BookPage() {
-  const posts = await getAllPosts();
+  const books = await getAllBooks();
 
   return (
     <section className="flex flex-col flex-1">
       <Hero />
-      <FeaturedPosts posts={posts} />
+      <BookContent books={books} />
     </section>
   );
 }

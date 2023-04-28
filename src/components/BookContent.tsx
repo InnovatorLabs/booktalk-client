@@ -1,14 +1,14 @@
 'use client';
 
-import { Post } from '@/service/posts';
-import PostGrid from '@/components/PostsGrid';
+import { BookType } from '@/service/books';
+import BookGrid from '@/components/BookGrid';
 import { AiOutlineSearch } from 'react-icons/ai';
 
 type Props = {
-  posts: Post[];
+  books: BookType[];
 };
 
-export default function FeaturedPosts({ posts }: Props) {
+export default function BookContent({ books }: Props) {
   return (
     <section className="pb-20">
       <div className="flex justify-between items-center w-full h-[80px] px-2">
@@ -31,7 +31,7 @@ export default function FeaturedPosts({ posts }: Props) {
           </button>
         </div>
       </div>
-      <PostGrid posts={posts} />
+      <BookGrid books={books} />
     </section>
   );
 }
