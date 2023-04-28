@@ -14,8 +14,7 @@ type Props = {
 
 const CAROUSEL_CLASS = [
   'overflow-hidden',
-  'ease-out duration-700',
-  'select-none',
+  'ease-in-out duration-700', //
 ];
 
 export default function FollowedCarousel(props: Props) {

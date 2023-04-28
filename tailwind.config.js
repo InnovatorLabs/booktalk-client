@@ -16,6 +16,30 @@ module.exports = {
           '80%': { translate: '20px 10px' },
           '100%': { translate: '0px 0px' },
         },
+        alarm: {
+          '0%': {
+            transform: 'scale(0.9)', //
+          },
+          '50%': {
+            transform: 'rotate(0deg)', //
+          },
+          '60%': {
+            transform: 'rotate(10deg)', //
+          },
+          '70%': {
+            transform: 'scale(1)',
+            transform: 'rotate(0deg)', //
+          },
+          '80%': {
+            transform: 'rotate(10deg)', //
+          },
+          '90%': {
+            transform: 'rotate(0deg)', //
+          },
+          '100%': {
+            transform: 'scale(0.9)', //
+          },
+        },
       },
     },
   },

@@ -107,13 +107,13 @@ export default function LoginPage() {
             </button>
             <ul className="flex justify-center gap-10 py-4">
               <li
-                className="mt-1 text-[#B3B3B3]"
+                className="mt-1 text-[#B3B3B3] cursor-pointer"
                 onClick={() => router.push('/auth/signup')}
               >
                 회원가입
               </li>
               <li
-                className="mt-1 text-[#B3B3B3]"
+                className="mt-1 text-[#B3B3B3] cursor-pointer"
                 onClick={() => router.push('/auth/password-find')}
               >
                 비밀번호 찾기
