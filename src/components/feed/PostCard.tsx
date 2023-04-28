@@ -72,7 +72,6 @@ export default function PostCard(props: Props) {
           </div>
         </div>
       </div>
-
       <div className="flex self-end gap-3 pr-4">
         <ShareIcon />
         <HeartIcon />

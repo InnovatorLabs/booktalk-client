@@ -8,6 +8,10 @@ module.exports = {
           from: { opacity: 0 },
           to: { opacity: 1 },
         },
+        fadeOut: {
+          from: { opacity: 1 },
+          to: { opacity: 0 },
+        },
         search: {
           '0%': { translate: '0px 0px' },
           '20%': { translate: '10px -5px' },

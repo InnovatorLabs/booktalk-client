@@ -18,7 +18,7 @@ export default function PostGrid(props: Props) {
           <h1 className="text-xl font-bold">{postTitle}</h1>
         </div>
       )}
-      <ul className="grid gap-2 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+      <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {posts?.map(post => (
           <li key={post.id} className="mb-20">
             <PostCard

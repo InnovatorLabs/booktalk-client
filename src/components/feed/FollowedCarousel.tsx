@@ -1,6 +1,7 @@
+import cx from 'classnames';
 // components
 import MultiCarousel from '../MultiCarousel';
-import cx from 'classnames';
+import FollowedSkeleton from '@/components/skeleton/FollowedSkeleton';
 
 // types
 import { PostType } from '@/service/posts';
@@ -45,7 +46,7 @@ export default function FollowedCarousel(props: Props) {
           </MultiCarousel>
         </section>
       ) : (
-        <></> //
+        <FollowedSkeleton /> //
       )}
     </div>
   );
