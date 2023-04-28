@@ -24,7 +24,3 @@ button[type='button'] {
 li {
   @apply list-none;
 }
-
-h1 {
-  @apply text-xl font-bold;
-}

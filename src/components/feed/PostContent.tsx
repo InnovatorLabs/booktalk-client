@@ -1,15 +1,18 @@
 'use client';
 
 import React from 'react';
-import { PostType } from '@/service/posts';
+// coponents
 import PostGrid from '@/components/feed/PostGrid';
+import FollowedCarousel from './FollowedCarousel';
+// types
+import { PostType } from '@/service/posts';
 
 type Props = {
   posts: PostType[];
 };
 
 export default function PostContent({ posts }: Props) {
-  const [data, setData] = React.useState<PostType[]>(posts);
+  const [followedData, setFollowedData] = React.useState<PostType[]>([]);
   const [followedById, setFollowedById] = React.useState(new Set());
 
   const handleFollowUpdate = (userName: string) => {
@@ -22,12 +25,29 @@ export default function PostContent({ posts }: Props) {
     setFollowedById(updateFollowById);
   };
 
+  React.useEffect(() => {
+    const baseFollowById = new Set(followedById);
+    const filterPosts = posts.reduce((res: PostType[], cur: PostType) => {
+      if (baseFollowById.has(cur.userName)) {
+        return [...res, cur];
+      }
+      return res;
+    }, []);
+    setFollowedData(filterPosts);
+  }, [posts, followedById]);
+
   return (
     <section>
-      <PostGrid
-        posts={data}
+      <FollowedCarousel
+        data={followedData}
         onFollow={handleFollowUpdate}
-        onFollowedId={followedById} //
+        onFollowedId={followedById}
+      />
+      <PostGrid
+        postTitle="포스팅"
+        posts={posts}
+        onFollow={handleFollowUpdate}
+        onFollowedId={followedById}
       />
     </section>
   );
