@@ -1,15 +1,15 @@
 import { getAllPosts } from '@/service/posts';
-import PostGrid from '@/components/PostGrid';
+import PostContent from '@/components/feed/PostContent';
 
 export default async function FeedPage() {
   const posts = await getAllPosts();
 
   return (
-    <section className="flex flex-col flex-1 pb-20">
-      <div className="flex items-end w-full h-[60px] px-2">
+    <section className="flex flex-col flex-1">
+      <div className="flex items-center w-full px-2 py-8">
         <h1>포스팅</h1>
       </div>
-      <PostGrid posts={posts} />
+      <PostContent posts={posts} />
     </section>
   );
 }

@@ -1,7 +1,7 @@
 'use client';
 
 import { BookType } from '@/service/books';
-import BookGrid from '@/components/BookGrid';
+import BookGrid from '@/components/book/BookGrid';
 import { AiOutlineSearch } from 'react-icons/ai';
 
 type Props = {
@@ -10,7 +10,7 @@ type Props = {
 
 export default function BookContent({ books }: Props) {
   return (
-    <section className="pb-20">
+    <section>
       <div className="flex justify-between items-center w-full h-[80px] px-2">
         <button
           type="button"

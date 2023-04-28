@@ -1,5 +1,5 @@
 import Hero from '@/components/Hero';
-import BookContent from '@/components/BookContent';
+import BookContent from '@/components/book/BookContent';
 import { getAllBooks } from '@/service/books';
 
 export default async function BookPage() {

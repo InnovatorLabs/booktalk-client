@@ -22,7 +22,7 @@ button[type='button'] {
 }
 
 li {
-  @apply list-none cursor-pointer;
+  @apply list-none;
 }
 
 h1 {
