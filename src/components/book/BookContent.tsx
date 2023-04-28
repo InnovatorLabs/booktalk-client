@@ -18,7 +18,7 @@ export default function BookContent({ books }: Props) {
         >
           글쓰기
         </button>
-        <div className="relative w-[30rem] h-3/5">
+        <div className="relative w-[30rem] h-3/5 ml-1">
           <input
             className="w-full h-full border-[#89CFF0] border-2 rounded pl-[14px]"
             type="text"

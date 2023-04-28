@@ -9,7 +9,7 @@ export default function FollowedSkeleton() {
         </div>
         <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {FOLLOW_DUMMY_DATA.map(item => (
-            <li key={item.id}>
+            <li key={item.id} className="mb-28">
               <div className="flex flex-col h-[290px] bg-slate-100 p-4 m-2 rounded-xl">
                 <article className="flex items-center border-b pb-2">
                   <div className="w-[40px] h-[40px] rounded-full bg-slate-200" />
