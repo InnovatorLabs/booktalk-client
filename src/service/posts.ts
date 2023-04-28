@@ -9,6 +9,7 @@ export type PostType = {
   content: string;
   date: Date;
   path: string;
+  follow: boolean;
 };
 
 export async function getAllPosts(): Promise<PostType[]> {
