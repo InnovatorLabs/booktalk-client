@@ -29,7 +29,7 @@ type Props = {
 
 export default function MultiCarousel({ children }: Props) {
   return (
-    <Carousel responsive={responsive} itemClass="mb-10">
+    <Carousel responsive={responsive} itemClass="mb-10" slidesToSlide={4}>
       {children}
     </Carousel>
   );

@@ -24,3 +24,7 @@ button[type='button'] {
 li {
   @apply list-none;
 }
+
+button[type='button'].react-multiple-carousel__arrow {
+  @apply flex justify-center items-center bg-[rgba(0,0,0,0.5)] opacity-50;
+}

@@ -25,7 +25,7 @@ export default function PostCard(props: Props) {
   };
 
   return (
-    <article className="relative h-[290px] rounded-xl shadow-[3px_5px_10px_1px_rgba(0,0,0,0.3)] p-4 m-2 animate-[fadeIn_0.7s_ease-in-out]">
+    <article className="relative h-[290px] rounded-xl shadow-[3px_5px_10px_1px_rgba(0,0,0,0.3)] p-4 m-2 animate-[fadeIn_1s_ease-in-out]">
       <div className="flex items-center border-b pb-2">
         <Image
           src={`/image/profile/profile${post.profileImage}.png`}

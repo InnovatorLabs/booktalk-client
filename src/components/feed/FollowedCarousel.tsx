@@ -12,7 +12,11 @@ type Props = {
   onFollowedId: Set<unknown>;
 };
 
-const CAROUSEL_CLASS = ['overflow-hidden', 'ease-in-out duration-700'];
+const CAROUSEL_CLASS = [
+  'overflow-hidden',
+  'ease-out duration-700',
+  'select-none',
+];
 
 export default function FollowedCarousel(props: Props) {
   const { data, onFollow, onFollowedId } = props;
