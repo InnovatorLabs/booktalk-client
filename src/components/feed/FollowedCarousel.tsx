@@ -31,7 +31,7 @@ export default function FollowedCarousel(props: Props) {
     >
       {data.length ? (
         <section className="animate-[fadeIn_0.3s_ease-in-out]">
-          <div className="flex items-center w-full px-2 py-8">
+          <div className="flex items-center w-full h-[100px] px-2">
             <h1 className="text-xl font-bold">내가 팔로우 한 독서가</h1>
           </div>
           <MultiCarousel>

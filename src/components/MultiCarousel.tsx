@@ -1,11 +1,11 @@
 'use client';
 
+import React from 'react';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 
 const responsive = {
   superLargeDesktop: {
-    // the naming can be any, depends on you.
     breakpoint: { max: 4000, min: 1024 },
     items: 4,
   },
@@ -28,12 +28,21 @@ type Props = {
 };
 
 export default function MultiCarousel({ children }: Props) {
+  const carouselRef = React.useRef<any>(null);
+
+  React.useEffect(() => {
+    carouselRef.current.goToSlide(0);
+  }, [children]);
+
   return (
     <Carousel
+      ref={carouselRef}
       responsive={responsive}
       itemClass="mb-10"
       slidesToSlide={1}
-      transitionDuration={0}
+      transitionDuration={100}
+      minimumTouchDrag={1}
+      rewindWithAnimation
     >
       {children}
     </Carousel>

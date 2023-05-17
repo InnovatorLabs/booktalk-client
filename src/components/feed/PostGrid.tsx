@@ -16,7 +16,7 @@ export default function PostGrid(props: Props) {
   return (
     <>
       {postTitle && (
-        <div className="flex justify-between items-center w-full px-2 py-8">
+        <div className="flex justify-between items-center w-full h-[100px] px-2">
           <h1 className="text-xl font-bold">{postTitle}</h1>
           <SearchInput />
         </div>
