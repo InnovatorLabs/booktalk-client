@@ -15,7 +15,7 @@ type Props = {
 
 const CAROUSEL_CLASS = [
   'overflow-hidden',
-  'ease-in-out duration-700', //
+  'ease-in-out duration-500', //
 ];
 
 export default function FollowedCarousel(props: Props) {
@@ -30,7 +30,7 @@ export default function FollowedCarousel(props: Props) {
       }
     >
       {data.length ? (
-        <section className="">
+        <section className="animate-[fadeIn_0.3s_ease-in-out]">
           <div className="flex items-center w-full px-2 py-8">
             <h1 className="text-xl font-bold">내가 팔로우 한 독서가</h1>
           </div>

@@ -28,7 +28,7 @@ export default function PostCard(props: Props) {
   };
 
   return (
-    <article className="flex flex-col justify-between relative h-[290px] rounded-xl shadow-[3px_5px_10px_1px_rgba(0,0,0,0.3)] p-4 m-2 animate-[fadeIn_0.7s_ease-in-out]">
+    <article className="flex flex-col justify-between relative h-[290px] rounded-xl shadow-[3px_5px_10px_1px_rgba(0,0,0,0.3)] p-4 m-2">
       <div>
         <div className="flex items-center border-b pb-2">
           <Image

@@ -1,4 +1,5 @@
 import { BookType } from '@/service/books';
+// components
 import BookCard from './BookCard';
 
 type Props = { books: BookType[] };

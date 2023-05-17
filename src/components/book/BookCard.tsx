@@ -10,7 +10,7 @@ export default function BookCard({
   book: { title, content, date, path },
 }: Props) {
   return (
-    <article className="flex flex-col justify-between relative h-[250px] rounded-xl shadow-[3px_5px_10px_1px_rgba(0,0,0,0.3)] p-4 m-2 animate-[fadeIn_0.7s_ease-in-out]">
+    <section className="flex flex-col justify-between relative h-[250px] rounded-xl shadow-[3px_5px_10px_1px_rgba(0,0,0,0.3)] p-4 m-2">
       <Image
         className="absolute left-10 bottom-[-4rem]"
         src={`/image/books/book${path}.png`}
@@ -27,6 +27,6 @@ export default function BookCard({
         <ShareIcon />
         <HeartIcon />
       </div>
-    </article>
+    </section>
   );
 }
