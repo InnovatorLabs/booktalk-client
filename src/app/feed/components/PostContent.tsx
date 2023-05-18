@@ -2,7 +2,7 @@
 
 import React from 'react';
 // coponents
-import PostGrid from '@/components/feed/PostGrid';
+import PostGrid from './PostGrid';
 import FollowedCarousel from './FollowedCarousel';
 // types
 import { PostType } from '@/service/posts';

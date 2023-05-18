@@ -1,8 +1,8 @@
 import Image from 'next/image';
 import { BookType } from '@/service/books';
 // icons
-import ShareIcon from '../icons/ShareIcon';
-import HeartIcon from '../icons/HeartIcon';
+import ShareIcon from '@/components/icons/ShareIcon';
+import HeartIcon from '@/components/icons/HeartIcon';
 
 type Props = { book: BookType };
 

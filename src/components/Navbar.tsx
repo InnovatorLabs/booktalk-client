@@ -13,7 +13,7 @@ const menu = [
     name: '피드',
   },
   {
-    href: '/team',
+    href: '/group',
     name: '모임',
   },
 ];

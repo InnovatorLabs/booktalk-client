@@ -1,7 +1,7 @@
 import { PostType } from '@/service/posts';
 // components
 import PostCard from './PostCard';
-import SearchInput from '../input/SearchInput';
+import SearchInput from '@/components/input/SearchInput';
 
 type Props = {
   postTitle?: string;

@@ -2,8 +2,8 @@ import Image from 'next/image';
 import cx from 'classnames';
 import { PostType } from '@/service/posts';
 // icons
-import ShareIcon from '../icons/ShareIcon';
-import HeartIcon from '../icons/HeartIcon';
+import ShareIcon from '@/components/icons/ShareIcon';
+import HeartIcon from '@/components/icons/HeartIcon';
 
 type Props = {
   post: PostType;

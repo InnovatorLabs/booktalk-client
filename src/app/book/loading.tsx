@@ -1,5 +1,5 @@
 // components
-import BookSkeleton from '../../components/skeleton/BookSkeleton';
+import BookSkeleton from '@/components/skeleton/BookSkeleton';
 
 export default function BookLoading() {
   return (
