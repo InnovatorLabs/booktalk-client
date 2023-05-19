@@ -1,14 +1,18 @@
+'use client';
+import { GroupType } from '@/service/group';
 // components
 import CenterCarousel from '@/components/carousel/CenterCarousel';
 import GroupCard from './GroupCard';
 
 type Props = {
-  data: string[];
+  data: GroupType[];
   label: string;
 };
 
 export default function GroupCarousel(props: Props) {
   const { data, label } = props;
+
+  const SLIDE_PER_SCREEN = 4;
 
   return (
     <section className="pt-10">
@@ -17,14 +21,14 @@ export default function GroupCarousel(props: Props) {
       </div>
       <CenterCarousel
         length={data.length}
-        slidePerScreen={4}
-        centerPadding={1} //
+        slideperscreen={SLIDE_PER_SCREEN}
+        centerpadding={1} //
       >
         {data.map(item => (
           <GroupCard
-            key={item}
+            key={item.id}
             data={item}
-            slidePerScreen={4} //
+            slideperscreen={SLIDE_PER_SCREEN} //
           />
         ))}
       </CenterCarousel>

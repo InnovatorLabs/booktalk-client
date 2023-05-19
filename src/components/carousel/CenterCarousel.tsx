@@ -20,33 +20,34 @@ const RIGHT_HANDLE_CLASS = [
 
 type Props = {
   length: number;
-  slidePerScreen: number;
-  centerPadding: number;
+  slideperscreen: number;
+  centerpadding: number;
   children: ReactNode;
 };
 
 export default function CenterCarousel(props: Props) {
-  const { length, slidePerScreen, centerPadding, children } = props;
+  const { length, slideperscreen, centerpadding, children } = props;
 
-  const [currentSlide, setCurrentSlide] = React.useState<number>(0);
+  const [currentslide, setCurrentslide] = React.useState<number>(0);
 
-  const isLastSlide = Math.floor(length / slidePerScreen) === currentSlide;
+  const isLastSlide =
+    Math.floor((length - 1) / slideperscreen) === currentslide;
 
   return (
     <section className="flex justify-center container overflow-hidden">
       <SlideButton
         className={
-          !currentSlide
+          !currentslide
             ? cx(LEFT_HANDLE_CLASS, 'invisible')
             : cx(LEFT_HANDLE_CLASS, 'left-handle visible')
         }
-        onClick={() => setCurrentSlide(currentSlide - 1)}
-        centerPadding={centerPadding}
+        onClick={() => setCurrentslide(currentslide - 1)}
+        centerpadding={centerpadding}
       >
         <LeftArrowIcon />
       </SlideButton>
       <SlideCardWrap
-        currentSlide={currentSlide} //
+        currentslide={currentslide} //
       >
         {children}
       </SlideCardWrap>
@@ -56,8 +57,8 @@ export default function CenterCarousel(props: Props) {
             ? cx(RIGHT_HANDLE_CLASS, 'invisible')
             : cx(RIGHT_HANDLE_CLASS, 'right-handle visible')
         }
-        onClick={() => setCurrentSlide(currentSlide + 1)}
-        centerPadding={centerPadding}
+        onClick={() => setCurrentslide(currentslide + 1)}
+        centerpadding={centerpadding}
       >
         <RightArrowIcon />
       </SlideButton>
@@ -65,16 +66,16 @@ export default function CenterCarousel(props: Props) {
   );
 }
 
-const SlideCardWrap = styled.div<{ currentSlide: number }>`
+const SlideCardWrap = styled.div<{ currentslide: number }>`
   display: flex;
   width: 100%;
   transition-duration: 300ms;
   ${props => css`
-    transform: translateX(-${props.currentSlide}00%);
+    transform: translateX(-${props.currentslide}00%);
   `}
 `;
 
-const SlideButton = styled.button<{ centerPadding: number }>`
+const SlideButton = styled.button<{ centerpadding: number }>`
   border: none;
   flex-grow: 0;
   z-index: 10;
@@ -91,6 +92,6 @@ const SlideButton = styled.button<{ centerPadding: number }>`
     background-color: rgba(0, 0, 0, 0.5);
   }
   ${props => css`
-    padding: ${props.centerPadding}rem;
+    padding: ${props.centerpadding}rem;
   `}
 `;
