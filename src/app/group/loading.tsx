@@ -1,3 +1,11 @@
+import GroupSkeleton from '@/components/skeleton/GroupSkeleton';
+
 export default function GroupLoading() {
-  return <div>sdsd</div>;
+  return (
+    <>
+      <GroupSkeleton />
+      <GroupSkeleton />
+      <GroupSkeleton />
+    </>
+  );
 }
