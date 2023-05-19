@@ -22,7 +22,7 @@ export default function GroupCarousel(props: Props) {
       <CenterCarousel
         length={data.length}
         slideperscreen={SLIDE_PER_SCREEN}
-        centerpadding={1} //
+        centerpadding={2} //
       >
         {data.map(item => (
           <GroupCard

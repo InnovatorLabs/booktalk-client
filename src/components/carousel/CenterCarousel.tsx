@@ -9,13 +9,13 @@ import RightArrowIcon from '@/components/icons/RightArrowIcon';
 const LEFT_HANDLE_CLASS = [
   'rounded-tr-[1rem]',
   'rounded-br-[1rem]',
-  'mr-[0.25rem]',
+  'mr-[1rem]',
 ];
 
 const RIGHT_HANDLE_CLASS = [
   'rounded-tl-[1rem]',
   'rounded-bl-[1rem]',
-  'ml-[0.25rem]',
+  'ml-[1rem]',
 ];
 
 type Props = {
@@ -34,7 +34,7 @@ export default function CenterCarousel(props: Props) {
     Math.floor((length - 1) / slideperscreen) === currentslide;
 
   return (
-    <section className="flex justify-center container overflow-hidden">
+    <section className="flex justify-center overflow-hidden group">
       <SlideButton
         className={
           !currentslide
@@ -68,7 +68,7 @@ export default function CenterCarousel(props: Props) {
 
 const SlideCardWrap = styled.div<{ currentslide: number }>`
   display: flex;
-  width: 100%;
+  width: calc(100% - 16rem);
   transition-duration: 300ms;
   ${props => css`
     transform: translateX(-${props.currentslide}00%);
@@ -79,7 +79,6 @@ const SlideButton = styled.button<{ centerpadding: number }>`
   border: none;
   flex-grow: 0;
   z-index: 10;
-  margin: 0.25rem 0;
   padding: 0 0.5rem;
   color: #fff;
   font-size: 5rem;
@@ -89,7 +88,7 @@ const SlideButton = styled.button<{ centerpadding: number }>`
   color: white;
   transition: background-color 150ms ease-in-out;
   &:hover {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.2);
   }
   ${props => css`
     padding: ${props.centerpadding}rem;

@@ -10,6 +10,7 @@ export type GroupType = {
   category: string[];
   title: string;
   type: string;
+  path: string;
 };
 
 export interface GroupPageInterface {
