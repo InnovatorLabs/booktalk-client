@@ -6,9 +6,6 @@ export default async function BookPage() {
   const books = await getAllBooks();
 
   return (
-    // <section className="flex flex-col flex-1">
-    //   <Hero />
-    // </section>
     <BookContent books={books} />
   );
 }

@@ -6,7 +6,7 @@ export default function SearchInput() {
   return (
     <div className="relative w-[30rem] h-[48px] ml-1">
       <input
-        className="w-full h-full border-[#89CFF0] border-2 rounded pl-[14px]"
+        className="w-full h-full border-[#89CFF0] border-2 pr-[50px] rounded pl-[14px]"
         type="text"
       />
       <button

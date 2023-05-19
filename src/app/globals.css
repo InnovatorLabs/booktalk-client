@@ -27,5 +27,34 @@ li {
 }
 
 button[type='button'].react-multiple-carousel__arrow {
-  @apply flex justify-center items-center bg-[rgba(0,0,0,0.5)] opacity-50;
+  @apply shadow-[0px_2px_4px_1px_rgba(0,0,0,0.3)];
+  displat: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  top: 130px;
+  min-width: 0;
+  /* border: 1px #d4d4d4 solid; */
+  opacity: 0.5;
+  background: #fff !important;
+  transform: scale(0.6);
+  &:hover {
+    opacity: 1;
+    transform: scale(0.8);
+  }
+}
+
+button[type='button'].react-multiple-carousel__arrow--right {
+  right: 0px;
+}
+
+button[type='button'].react-multiple-carousel__arrow--left {
+  left: 0px;
+}
+
+.react-multiple-carousel__arrow::before {
+  color: #000 !important;
+  font-size: 28px !important;
 }
