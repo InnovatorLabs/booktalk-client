@@ -1,17 +1,17 @@
-import styled, { css } from 'styled-components';
 import { GroupType } from '@/service/group';
 import Image from 'next/image';
 
 type Props = {
   data: GroupType;
-  slideperscreen: number; //
 };
 
 export default function GroupCard(props: Props) {
-  const { data, slideperscreen } = props;
+  const { data } = props;
 
   return (
-    <SlideCard slideperscreen={slideperscreen}>
+    <section
+      className={`px-[1rem] grow-0 shrink-0 rounded-[1rem] basis-1/4 max-w-1/4`}
+    >
       <div className="flex flex-col items-center rounded-[1rem]">
         <Image
           src={`/image/group/group${data.path}.png`}
@@ -42,17 +42,6 @@ export default function GroupCard(props: Props) {
           </div>
         </article>
       </div>
-    </SlideCard>
+    </section>
   );
 }
-
-const SlideCard = styled.div<{ slideperscreen: number }>`
-  flex-grow: 0;
-  flex-shrink: 0;
-  padding: 0 1rem;
-  border-radius: 1rem;
-  ${props => css`
-    flex-basis: ${100 / props.slideperscreen}%;
-    max-width: ${100 / props.slideperscreen}%;
-  `}
-`;

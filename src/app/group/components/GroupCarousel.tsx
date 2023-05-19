@@ -12,8 +12,6 @@ type Props = {
 export default function GroupCarousel(props: Props) {
   const { data, label } = props;
 
-  const SLIDE_PER_SCREEN = 4;
-
   return (
     <section className="pt-10">
       <div className="flex items-center w-full h-[100px]">
@@ -21,14 +19,13 @@ export default function GroupCarousel(props: Props) {
       </div>
       <CenterCarousel
         length={data.length}
-        slideperscreen={SLIDE_PER_SCREEN}
+        slideperscreen={4}
         centerpadding={2} //
       >
         {data.map(item => (
           <GroupCard
             key={item.id}
-            data={item}
-            slideperscreen={SLIDE_PER_SCREEN} //
+            data={item} //
           />
         ))}
       </CenterCarousel>

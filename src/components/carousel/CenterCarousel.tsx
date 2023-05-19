@@ -47,6 +47,7 @@ export default function CenterCarousel(props: Props) {
         <LeftArrowIcon />
       </SlideButton>
       <SlideCardWrap
+        className="flex w-[calc(100%-16rem)]"
         currentslide={currentslide} //
       >
         {children}
@@ -67,8 +68,6 @@ export default function CenterCarousel(props: Props) {
 }
 
 const SlideCardWrap = styled.div<{ currentslide: number }>`
-  display: flex;
-  width: calc(100% - 16rem);
   transition-duration: 300ms;
   ${props => css`
     transform: translateX(-${props.currentslide}00%);
