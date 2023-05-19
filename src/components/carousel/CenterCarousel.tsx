@@ -30,8 +30,21 @@ export default function CenterCarousel(props: Props) {
 
   const [currentslide, setCurrentslide] = React.useState<number>(0);
 
-  const isLastSlide =
-    Math.floor((length - 1) / slideperscreen) === currentslide;
+  const isLastSlide = Math.floor((length - 1) / slideperscreen) <= currentslide;
+
+  const handlePrevButtonClick = () => {
+    setCurrentslide((prev: number) => {
+      if (prev === 0) return 0;
+      return prev - 1;
+    });
+  };
+
+  const handleNextButtonClick = () => {
+    setCurrentslide((prev: number) => {
+      if (isLastSlide) return prev;
+      return prev + 1;
+    });
+  };
 
   return (
     <section className="flex justify-center overflow-hidden group">
@@ -41,7 +54,7 @@ export default function CenterCarousel(props: Props) {
             ? cx(LEFT_HANDLE_CLASS, 'invisible')
             : cx(LEFT_HANDLE_CLASS, 'left-handle visible')
         }
-        onClick={() => setCurrentslide(currentslide - 1)}
+        onClick={handlePrevButtonClick}
         centerpadding={centerpadding}
       >
         <LeftArrowIcon />
@@ -58,7 +71,7 @@ export default function CenterCarousel(props: Props) {
             ? cx(RIGHT_HANDLE_CLASS, 'invisible')
             : cx(RIGHT_HANDLE_CLASS, 'right-handle visible')
         }
-        onClick={() => setCurrentslide(currentslide + 1)}
+        onClick={handleNextButtonClick}
         centerpadding={centerpadding}
       >
         <RightArrowIcon />
