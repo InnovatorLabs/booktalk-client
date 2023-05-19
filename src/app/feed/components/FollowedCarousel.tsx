@@ -1,6 +1,6 @@
 import cx from 'classnames';
 // components
-import MultiCarousel from '@/components/MultiCarousel';
+import MultiCarousel from '@/components/carousel/MultiCarousel';
 import FollowedSkeleton from '@/components/skeleton/FollowedSkeleton';
 
 // types

@@ -5,7 +5,7 @@ import cx from 'classnames';
 import LargeSearchIcon from '@/components/icons/LargeSearchIcon';
 import ChevronDownIcon from '@/components/icons/ChevronDownIcon';
 // components
-import GroupCarousel from './GroupCarousel';
+import GroupCarousel from './components/GroupCarousel';
 
 const CATEGORY_TYPE = [
   '소설',
@@ -36,6 +36,8 @@ const CATEGORY_BUTTON_CLASS = [
   'rounded-md',
   'duration-200',
 ];
+
+const DUMMY_DATA = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
 
 export default function GroupPage() {
   const [checkedById, setCheckedById] = React.useState<Set<string>>(new Set());
@@ -87,11 +89,18 @@ export default function GroupPage() {
           ))}
         </div>
       </section>
-      <section className="flex flex-col">
-        <GroupCarousel label="MY 북토크" />
-        <GroupCarousel label="활동 중인 온라인 독서모임" />
-        <GroupCarousel label="신규 독서 모임" />
-      </section>
+      <GroupCarousel
+        data={DUMMY_DATA}
+        label="MY 북토크" //
+      />
+      <GroupCarousel
+        data={DUMMY_DATA}
+        label="활동 중인 온라인 독서모임" //
+      />
+      <GroupCarousel
+        data={DUMMY_DATA}
+        label="신규 독서 모임" //
+      />
     </section>
   );
 }
