@@ -1,5 +1,5 @@
 'use client';
-import { GroupType } from '@/service/group';
+import { GroupType } from '@/types/group';
 // components
 import CenterCarousel from '@/components/carousel/CenterCarousel';
 import GroupCard from './GroupCard';

@@ -5,7 +5,7 @@ import React from 'react';
 import PostGrid from './PostGrid';
 import FollowedCarousel from './FollowedCarousel';
 // types
-import { PostType } from '@/service/posts';
+import { PostType } from '@/types/feed';
 
 type Props = {
   posts: PostType[];

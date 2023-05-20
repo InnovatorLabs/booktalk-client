@@ -1,18 +1,15 @@
 'use client';
-
 import React from 'react';
-import { useRouter } from 'next/navigation';
-
 // components
 import TextInput from '@/components/input/TextInput';
 import Progressbar from '@/components/Progressbar';
-
-const STEP_LEVEL = 4;
+// types
+import { SignupType } from '@/types/auth';
+// config
+import { STEP_LEVEL } from '@/config/auth';
 
 export default function SignupPage() {
-  const router = useRouter();
-
-  const [form, setForm] = React.useState({
+  const [form, setForm] = React.useState<SignupType>({
     email: '',
   });
   const [step, setStep] = React.useState<number>(1);

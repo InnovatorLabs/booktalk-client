@@ -1,6 +1,6 @@
 'use client';
-
-import { BookType } from '@/service/books';
+// types
+import { BookType } from '@/types/book';
 // components
 import BookGrid from './BookGrid';
 

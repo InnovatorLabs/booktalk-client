@@ -2,21 +2,18 @@ import cx from 'classnames';
 // components
 import MultiCarousel from '@/components/carousel/MultiCarousel';
 import FollowedSkeleton from '@/components/skeleton/FollowedSkeleton';
-
 // types
-import { PostType } from '@/service/posts';
+import { PostType } from '@/types/feed';
+// components
 import PostCard from './PostCard';
+//config
+import { CAROUSEL_CLASS } from '@/config/feed';
 
 type Props = {
   data: PostType[];
   onFollow: (userName: string) => void;
   onFollowedId: Set<unknown>;
 };
-
-const CAROUSEL_CLASS = [
-  'overflow-hidden',
-  'ease-in-out duration-500', //
-];
 
 export default function FollowedCarousel(props: Props) {
   const { data, onFollow, onFollowedId } = props;

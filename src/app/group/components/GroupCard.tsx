@@ -1,4 +1,4 @@
-import { GroupType } from '@/service/group';
+import { GroupType } from '@/types/group';
 import Image from 'next/image';
 
 type Props = {

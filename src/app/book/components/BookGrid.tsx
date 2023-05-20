@@ -1,4 +1,5 @@
-import { BookType } from '@/service/books';
+// types
+import { BookType } from '@/types/book';
 // components
 import BookCard from './BookCard';
 

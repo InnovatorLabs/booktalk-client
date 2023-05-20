@@ -1,4 +1,5 @@
-import { PostType } from '@/service/posts';
+// types
+import { PostType } from '@/types/feed';
 // components
 import PostCard from './PostCard';
 import SearchInput from '@/components/input/SearchInput';

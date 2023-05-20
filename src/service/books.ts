@@ -1,13 +1,7 @@
 import { readFile } from 'fs/promises';
 import path from 'path';
-
-export type BookType = {
-  id: string;
-  title: string;
-  content: string;
-  date: Date;
-  path: string;
-};
+// types
+import { BookType } from '@/types/book';
 
 export async function getAllBooks(): Promise<BookType[]> {
   const filePath = path.join(process.cwd(), 'data', 'books.json');

@@ -1,5 +1,4 @@
 'use client';
-
 import React from 'react';
 import { useRouter } from 'next/navigation';
 import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
@@ -8,12 +7,14 @@ import { SiNaver } from 'react-icons/si';
 import { FcGoogle } from 'react-icons/fc';
 // components
 import TextInput from '@/components/input/TextInput';
+// types
+import { LoginFormType } from '@/types/auth';
 
 export default function LoginPage() {
   const router = useRouter();
 
-  const [showPwd, setShowPwd] = React.useState(false);
-  const [form, setForm] = React.useState({
+  const [showPwd, setShowPwd] = React.useState<boolean>(false);
+  const [form, setForm] = React.useState<LoginFormType>({
     email: '',
     password: '',
   });

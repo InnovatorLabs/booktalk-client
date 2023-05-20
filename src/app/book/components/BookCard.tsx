@@ -1,5 +1,6 @@
 import Image from 'next/image';
-import { BookType } from '@/service/books';
+// types
+import { BookType } from '@/types/book';
 // icons
 import ShareIcon from '@/components/icons/ShareIcon';
 import HeartIcon from '@/components/icons/HeartIcon';

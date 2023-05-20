@@ -1,24 +1,18 @@
 import Image from 'next/image';
 import cx from 'classnames';
-import { PostType } from '@/service/posts';
+// types
+import { PostType } from '@/types/feed';
 // icons
 import ShareIcon from '@/components/icons/ShareIcon';
 import HeartIcon from '@/components/icons/HeartIcon';
+// config
+import { FOLLOW_BUTTON_CLASS } from '@/config/feed';
 
 type Props = {
   post: PostType;
   onFollow: (userName: string) => void;
   onFollowedId: Set<unknown>;
 };
-
-const FOLLOW_BUTTON_CLASS = [
-  'text-xs',
-  'text-white',
-  'py-2',
-  'px-3',
-  'hover:brightness-110',
-  'ease-in-out duration-200',
-];
 
 export default function PostCard(props: Props) {
   const { post, onFollow, onFollowedId } = props;
