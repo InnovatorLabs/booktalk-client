@@ -2,18 +2,24 @@
 
 import React from 'react';
 import { useRouter } from 'next/navigation';
-import { TextField, InputAdornment } from '@mui/material';
-import styled from '@emotion/styled';
+
+// components
+import TextInput from '@/components/input/TextInput';
+import Progressbar from '@/components/Progressbar';
 
 const STEP_LEVEL = 4;
 
 export default function SignupPage() {
   const router = useRouter();
 
+  const [form, setForm] = React.useState({
+    email: '',
+  });
   const [step, setStep] = React.useState<number>(1);
 
   const handleFormChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
+    setForm({ ...form, [name]: value });
   };
 
   const handleFormSubmit = () => {
@@ -22,19 +28,20 @@ export default function SignupPage() {
     }
   };
 
+  const handleFormReset = (name: string) => {
+    setForm({ ...form, [name]: '' });
+  };
+
   return (
     <section className="flex justify-center py-28">
       <div className="w-2/5 border shadow rounded-md">
         <p className="flex justify-center items-center h-[64px] font-bold">
           회원가입
         </p>
-        <div className="relative w-full">
-          <div className="absolute w-full h-[5px] bg-slate-100" />
-          <ProgerssBar
-            value={step}
-            className="absolute w-full bg-[#141414] h-[5px]"
-          />
-        </div>
+        <Progressbar
+          value={step}
+          steplevel={STEP_LEVEL} //
+        />
         <div className="px-8 py-6">
           <article className="flex flex-col gap-3">
             <p className="font-semibold">
@@ -43,15 +50,13 @@ export default function SignupPage() {
             <p>혼자서 하는 독서를 넘어 독서 모임까지 Booktok과 함께 하세요.</p>
           </article>
           <div className="flex flex-col text-center py-10 gap-2">
-            <TextField
+            <TextInput
               name="email"
               type="text"
-              autoComplete="off"
-              size="medium"
-              //   value={form.email}
+              value={form.email}
               onChange={handleFormChange}
-              InputLabelProps={{ style: { fontSize: '0.8rem' } }}
               label="이메일"
+              onReset={handleFormReset}
             />
             <button
               type="submit"
@@ -66,9 +71,3 @@ export default function SignupPage() {
     </section>
   );
 }
-
-const ProgerssBar = styled.div<{ value: number }>`
-  transition-duration: 500ms;
-  transform: scaleX(${props => props.value / STEP_LEVEL});
-  transform-origin: center left;
-`;
