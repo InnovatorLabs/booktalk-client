@@ -7,20 +7,19 @@ import styled from '@emotion/styled';
 
 const STEP_LEVEL = 4;
 
-const STEP_VALUE = {
-  1: 1 / STEP_LEVEL,
-  2: 2 / STEP_LEVEL,
-  3: 3 / STEP_LEVEL,
-  4: 4 / STEP_LEVEL,
-};
-
 export default function SignupPage() {
   const router = useRouter();
 
-  const [step, setStep] = React.useState(STEP_VALUE[1]);
+  const [step, setStep] = React.useState<number>(1);
 
   const handleFormChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
+  };
+
+  const handleFormSubmit = () => {
+    if (step < STEP_LEVEL) {
+      setStep(step + 1);
+    }
   };
 
   return (
@@ -30,8 +29,11 @@ export default function SignupPage() {
           회원가입
         </p>
         <div className="relative w-full">
-          <div className="absolute w-full h-[6px] bg-slate-100" />
-          <ProgerssBar value={step} />
+          <div className="absolute w-full h-[5px] bg-slate-100" />
+          <ProgerssBar
+            value={step}
+            className="absolute w-full bg-[#141414] h-[5px]"
+          />
         </div>
         <div className="px-8 py-6">
           <article className="flex flex-col gap-3">
@@ -51,7 +53,11 @@ export default function SignupPage() {
               InputLabelProps={{ style: { fontSize: '0.8rem' } }}
               label="이메일"
             />
-            <button type="submit" className="h-[60px] rounded-md mt-2">
+            <button
+              type="submit"
+              className="h-[60px] rounded-md mt-2"
+              onClick={handleFormSubmit}
+            >
               이메일 인증하기
             </button>
           </div>
@@ -62,10 +68,7 @@ export default function SignupPage() {
 }
 
 const ProgerssBar = styled.div<{ value: number }>`
-  position: absolute;
-  width: 100%;
-  background-color: #141414;
-  height: 6px;
-  transform: scaleX(${props => props.value});
+  transition-duration: 500ms;
+  transform: scaleX(${props => props.value / STEP_LEVEL});
   transform-origin: center left;
 `;

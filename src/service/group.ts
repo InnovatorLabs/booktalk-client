@@ -21,6 +21,6 @@ export interface GroupPageInterface {
 
 export async function getAllgroup(): Promise<GroupPageInterface[]> {
   const filePath = path.join(process.cwd(), 'data', 'group.json');
-  console.log(filePath, 'filePath ?');
+
   return readFile(filePath, 'utf-8').then<GroupPageInterface[]>(JSON.parse);
 }
