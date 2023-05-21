@@ -9,7 +9,7 @@ module.exports = {
           to: { opacity: 1 },
         },
         fadeOut: {
-          from: { opacity: 1 },
+          from: { opacity: 0.5 },
           to: { opacity: 0 },
         },
         skeleton: {

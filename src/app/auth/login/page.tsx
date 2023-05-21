@@ -1,7 +1,6 @@
 'use client';
 import React from 'react';
 import { useRouter } from 'next/navigation';
-import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
 import { RiKakaoTalkFill } from 'react-icons/ri';
 import { SiNaver } from 'react-icons/si';
 import { FcGoogle } from 'react-icons/fc';
@@ -9,6 +8,9 @@ import { FcGoogle } from 'react-icons/fc';
 import TextInput from '@/components/input/TextInput';
 // types
 import { LoginFormType } from '@/types/auth';
+// icons
+import FillEyeIcon from '@/components/icons/FillEyeIcon';
+import FillEyeInvisibleIcon from '@/components/icons/FillEyeInvisibleIcon';
 
 export default function LoginPage() {
   const router = useRouter();
@@ -41,7 +43,7 @@ export default function LoginPage() {
             </p>
             <p>혼자서 하는 독서를 넘어 독서 모임까지 Booktok과 함께 하세요.</p>
           </article>
-          <div className="flex flex-col text-center py-10 gap-2">
+          <div className="flex flex-col text-center pt-6 pb-10">
             <TextInput
               name="email"
               type="text"
@@ -62,15 +64,14 @@ export default function LoginPage() {
                   className="cursor-pointer"
                   onClick={() => setShowPwd(!showPwd)}
                 >
-                  {showPwd ? (
-                    <AiFillEye size={30} color="#C4C4C4" />
-                  ) : (
-                    <AiFillEyeInvisible size={30} color="#C4C4C4" />
-                  )}
+                  {showPwd ? <FillEyeIcon /> : <FillEyeInvisibleIcon />}
                 </div>
               }
             />
-            <button type="submit" className="h-[60px] rounded-md mt-2">
+            <button
+              type="submit"
+              className="h-[60px] rounded-md mt-2 bg-[#89CFF0] text-white hover:brightness-110"
+            >
               이메일로 로그인하기
             </button>
             <ul className="flex justify-center gap-10 py-4">

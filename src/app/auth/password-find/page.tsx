@@ -1,8 +1,9 @@
 'use client';
-
 import React from 'react';
 import { useRouter } from 'next/navigation';
 import { TextField, InputAdornment } from '@mui/material';
+// components
+import TextInput from '@/components/input/TextInput';
 
 export default function PasswordFindPage() {
   const router = useRouter();
@@ -24,18 +25,19 @@ export default function PasswordFindPage() {
               입력하신 이메일 주소로 비밀번호 재설정 안내 메일을 보내드려요.
             </p>
           </article>
-          <div className="flex flex-col text-center py-10 gap-2">
-            <TextField
-              name="email"
-              type="text"
-              autoComplete="off"
-              size="medium"
-              //   value={form.email}
-              onChange={handleFormChange}
-              InputLabelProps={{ style: { fontSize: '0.8rem' } }}
-              label="이메일"
+          <div className="flex flex-col text-center pt-6 pb-10">
+            <TextInput
+              name=""
+              type=""
+              value=""
+              onChange={() => console.log()}
+              label=""
+              onReset={() => console.log()}
             />
-            <button type="submit" className="h-[60px] rounded-md mt-2">
+            <button
+              type="submit"
+              className="h-[60px] rounded-md mt-2 bg-[#89CFF0] text-white hover:brightness-110"
+            >
               재설정 이메일 전송
             </button>
           </div>
