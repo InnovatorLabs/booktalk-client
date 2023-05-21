@@ -1,3 +1,4 @@
+import React from 'react';
 import cx from 'classnames';
 import Checkbox from '@mui/material/Checkbox';
 // config
@@ -9,14 +10,32 @@ import {
 
 type Props = {
   invisible?: boolean;
-  onSelectDeselect: (name: string) => void;
-  onSelectDeselectAll: (name: React.ChangeEvent<HTMLInputElement>) => void;
   checkedById: Set<string>;
+  setCheckedById: (list: Set<string>) => void;
 };
 
 export default function TermsAgreement(props: Props) {
-  const { invisible, onSelectDeselect, onSelectDeselectAll, checkedById } =
-    props;
+  const { invisible, checkedById, setCheckedById } = props;
+
+  const handleSelectDeselect = (name: string) => {
+    const updatedCheckedById = new Set(checkedById);
+    if (updatedCheckedById.has(name)) {
+      updatedCheckedById.delete(name);
+    } else {
+      updatedCheckedById.add(name);
+    }
+    setCheckedById(updatedCheckedById);
+  };
+
+  const handleSelectDeselectAll = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.checked) {
+      const checkList = Object.values(TERMS_AGREEMENT_TYPE);
+      const allChecked = new Set(checkList.map(name => name));
+      setCheckedById(allChecked);
+    } else {
+      setCheckedById(new Set());
+    }
+  };
 
   return (
     <div
@@ -36,7 +55,7 @@ export default function TermsAgreement(props: Props) {
         <Checkbox
           name={TERMS_AGREEMENT_TYPE.all}
           checked={checkedById.has(TERMS_AGREEMENT_TYPE.all)}
-          onChange={e => onSelectDeselectAll(e)}
+          onChange={e => handleSelectDeselectAll(e)}
           size="medium"
         />
         <span className="flex text-[16px] font-[600] gap-2">
@@ -47,7 +66,7 @@ export default function TermsAgreement(props: Props) {
         <Checkbox
           name={TERMS_AGREEMENT_TYPE.terms}
           checked={checkedById.has(TERMS_AGREEMENT_TYPE.terms)}
-          onChange={() => onSelectDeselect(TERMS_AGREEMENT_TYPE.terms)}
+          onChange={() => handleSelectDeselect(TERMS_AGREEMENT_TYPE.terms)}
           size="medium"
         />
         <span className="flex text-[14px] gap-2">
@@ -61,7 +80,7 @@ export default function TermsAgreement(props: Props) {
         <Checkbox
           name={TERMS_AGREEMENT_TYPE.privacy}
           checked={checkedById.has(TERMS_AGREEMENT_TYPE.privacy)}
-          onChange={() => onSelectDeselect(TERMS_AGREEMENT_TYPE.privacy)}
+          onChange={() => handleSelectDeselect(TERMS_AGREEMENT_TYPE.privacy)}
           size="medium"
         />
         <span className="flex text-[14px] gap-2">
@@ -75,7 +94,7 @@ export default function TermsAgreement(props: Props) {
         <Checkbox
           name={TERMS_AGREEMENT_TYPE.thirdParty}
           checked={checkedById.has(TERMS_AGREEMENT_TYPE.thirdParty)}
-          onChange={() => onSelectDeselect(TERMS_AGREEMENT_TYPE.thirdParty)}
+          onChange={() => handleSelectDeselect(TERMS_AGREEMENT_TYPE.thirdParty)}
           size="medium"
         />
         <span className="flex text-[14px] gap-2">
@@ -89,7 +108,7 @@ export default function TermsAgreement(props: Props) {
         <Checkbox
           name={TERMS_AGREEMENT_TYPE.marketing}
           checked={checkedById.has(TERMS_AGREEMENT_TYPE.marketing)}
-          onChange={() => onSelectDeselect(TERMS_AGREEMENT_TYPE.marketing)}
+          onChange={() => handleSelectDeselect(TERMS_AGREEMENT_TYPE.marketing)}
           size="medium"
         />
         <span className="flex text-[14px] gap-2">
@@ -103,7 +122,7 @@ export default function TermsAgreement(props: Props) {
         <Checkbox
           name={TERMS_AGREEMENT_TYPE.age}
           checked={checkedById.has(TERMS_AGREEMENT_TYPE.age)}
-          onChange={() => onSelectDeselect(TERMS_AGREEMENT_TYPE.age)}
+          onChange={() => handleSelectDeselect(TERMS_AGREEMENT_TYPE.age)}
           size="medium"
         />
         <span className="flex text-[14px] gap-2">

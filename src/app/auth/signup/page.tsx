@@ -59,26 +59,6 @@ export default function SignupPage() {
     setForm({ ...form, [name]: '' });
   };
 
-  const handleSelectDeselect = (name: string) => {
-    const updatedCheckedById = new Set(checkedById);
-    if (updatedCheckedById.has(name)) {
-      updatedCheckedById.delete(name);
-    } else {
-      updatedCheckedById.add(name);
-    }
-    setCheckedById(updatedCheckedById);
-  };
-
-  const handleSelectDeselectAll = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.checked) {
-      const checkList = Object.values(TERMS_AGREEMENT_TYPE);
-      const allChecked = new Set(checkList.map(name => name));
-      setCheckedById(allChecked);
-    } else {
-      setCheckedById(new Set());
-    }
-  };
-
   const validationOfSubmitButton = (step: number) => {
     let active = false;
     let text;
@@ -194,9 +174,8 @@ export default function SignupPage() {
               />
               <TermsAgreement
                 invisible={step !== 4}
-                onSelectDeselect={handleSelectDeselect}
-                onSelectDeselectAll={handleSelectDeselectAll}
                 checkedById={checkedById}
+                setCheckedById={setCheckedById}
               />
             </article>
             <button
