@@ -28,7 +28,7 @@ const initialFormState = {
 
 export default function SignupPage() {
   const [form, setForm] = React.useState<SignupType>(initialFormState);
-  const [step, setStep] = React.useState<number>(2);
+  const [step, setStep] = React.useState<number>(1);
   const [confirmEmail, setConfirmEmail] = React.useState<string | number>('');
   const [showPwd, setShowPwd] = React.useState<boolean>(false);
   const [checkedById, setCheckedById] = React.useState<Set<string>>(new Set());

@@ -1,6 +1,7 @@
 import React, { ReactNode } from 'react';
 import { TextField, InputAdornment } from '@mui/material';
 import cx from 'classnames';
+import { useRouter } from 'next/navigation';
 // icons
 import CloseCircleIcon from '../icons/CloseCircleIcon';
 // config
@@ -35,6 +36,7 @@ export default function TextInput(props: Props) {
     delay,
   } = props;
 
+  const router = useRouter();
   const [hover, setHover] = React.useState<boolean>(false);
   const [focus, setFocus] = React.useState<boolean>(false);
 
@@ -75,7 +77,12 @@ export default function TextInput(props: Props) {
         endAdornment: (
           <InputAdornment position="end" className="gap-2">
             {readonly ? (
-              <button className="text-[#D9D9D9]">변경하기</button>
+              <button
+                className="text-[#D9D9D9]"
+                onClick={() => window.location.reload()}
+              >
+                변경하기
+              </button>
             ) : hover || focus ? (
               <button type="reset" onClick={() => onReset(name)}>
                 {value && <CloseCircleIcon />}
