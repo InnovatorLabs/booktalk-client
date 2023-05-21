@@ -43,7 +43,10 @@ export default function SignupPage() {
   const handleConfirmEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
     const isValidNumber = /^-?\d*\.?\d+$/.test(value);
-    if (!isValidNumber) return;
+    if (!isValidNumber) {
+      setConfirmEmail(value.slice(0, -1));
+      return;
+    }
     if (!isLimit || value.length < CONFIRM_LIMIT) {
       setConfirmEmail(value);
     }

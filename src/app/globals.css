@@ -59,9 +59,3 @@ button[type='button'].react-multiple-carousel__arrow--left {
   color: #000 !important;
   font-size: 28px !important;
 }
-
-input::-webkit-inner-spin-button {
-  appearance: none;
-  -moz-appearance: none;
-  -webkit-appearance: none;
-}

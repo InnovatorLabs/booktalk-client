@@ -23,3 +23,7 @@ export const TERMS_AGREEMENT_TYPE = {
   marketing: 'marketing',
   age: 'age',
 };
+
+export const CONFIRM_ACTIVE_BUTTON_CLASS = [
+  'px-[10px] py-[6px] rounded-md text-white duration-300',
+];
