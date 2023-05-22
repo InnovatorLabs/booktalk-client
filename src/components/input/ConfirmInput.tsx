@@ -82,7 +82,11 @@ export default function ConfirmInput(props: Props) {
                   ? cx(CONFIRM_ACTIVE_BUTTON_CLASS, 'bg-[#89CFF0]')
                   : cx(CONFIRM_ACTIVE_BUTTON_CLASS, 'bg-[#D9D9D9]')
               }
-              onClick={handleResubmitClick}
+              onClick={
+                active
+                  ? () => handleResubmitClick() //
+                  : undefined
+              }
             >
               재전송
             </button>

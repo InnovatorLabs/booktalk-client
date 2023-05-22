@@ -1,7 +1,6 @@
 import React, { ReactNode } from 'react';
 import { TextField, InputAdornment } from '@mui/material';
 import cx from 'classnames';
-import { useRouter } from 'next/navigation';
 // icons
 import CloseCircleIcon from '../icons/CloseCircleIcon';
 // config
@@ -36,7 +35,6 @@ export default function TextInput(props: Props) {
     delay,
   } = props;
 
-  const router = useRouter();
   const [hover, setHover] = React.useState<boolean>(false);
   const [focus, setFocus] = React.useState<boolean>(false);
 
