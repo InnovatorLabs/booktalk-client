@@ -88,12 +88,17 @@ function TextInput(props: Props, ref: React.ForwardedRef<unknown>) {
             {readonly ? (
               <button
                 className="text-[#D9D9D9]"
+                tabIndex={-1}
                 onClick={() => window.location.reload()}
               >
                 변경하기
               </button>
             ) : hover || focus ? (
-              <button type="reset" onClick={() => onReset(name)}>
+              <button
+                type="reset"
+                tabIndex={-1}
+                onClick={() => onReset(name)} //
+              >
                 {value && <CloseCircleIcon />}
               </button>
             ) : (
@@ -102,6 +107,7 @@ function TextInput(props: Props, ref: React.ForwardedRef<unknown>) {
             {isEyeIcon && (
               <div
                 className="cursor-pointer"
+                tabIndex={-1}
                 onClick={() => setShowPassword(!showPassword)}
               >
                 {showPassword ? <FillEyeIcon /> : <FillEyeInvisibleIcon />}
