@@ -1,24 +1,18 @@
 import Image from 'next/image';
 import cx from 'classnames';
-import { PostType } from '@/service/posts';
+// types
+import { PostType } from '@/types/feed';
 // icons
-import ShareIcon from '../icons/ShareIcon';
-import HeartIcon from '../icons/HeartIcon';
+import ShareIcon from '@/components/icons/ShareIcon';
+import HeartIcon from '@/components/icons/HeartIcon';
+// config
+import { FOLLOW_BUTTON_CLASS } from '@/config/feed';
 
 type Props = {
   post: PostType;
   onFollow: (userName: string) => void;
   onFollowedId: Set<unknown>;
 };
-
-const FOLLOW_BUTTON_CLASS = [
-  'text-xs',
-  'text-white',
-  'py-2',
-  'px-3',
-  'hover:brightness-110',
-  'ease-in-out duration-200',
-];
 
 export default function PostCard(props: Props) {
   const { post, onFollow, onFollowedId } = props;
@@ -28,7 +22,7 @@ export default function PostCard(props: Props) {
   };
 
   return (
-    <article className="flex flex-col justify-between relative h-[290px] rounded-xl shadow-[3px_5px_10px_1px_rgba(0,0,0,0.3)] p-4 m-2 animate-[fadeIn_0.7s_ease-in-out]">
+    <article className="flex flex-col justify-between relative h-[290px] rounded-xl shadow-[3px_5px_10px_1px_rgba(0,0,0,0.3)] p-4 m-2">
       <div>
         <div className="flex items-center border-b pb-2">
           <Image
@@ -72,7 +66,6 @@ export default function PostCard(props: Props) {
           </div>
         </div>
       </div>
-
       <div className="flex self-end gap-3 pr-4">
         <ShareIcon />
         <HeartIcon />

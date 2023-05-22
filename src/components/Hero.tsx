@@ -13,11 +13,11 @@ export default function Hero() {
           height={100}
           alt="my profile"
         />
-        <div className="flex flex-col w-full h-[100px] pl-8">
+        <div className="flex flex-col w-full h-[100px] pl-6 sm:pl-8 mr-1">
           <div className="flex-1 text-2xl">
             <strong>고독한 독서가</strong>의 책장
           </div>
-          <div className="flex flex-1 gap-3">
+          <div className="flex flex-1 gap-3 whitespace-nowrap">
             <div className="flex h-1/2 items-center">
               팔로워
               <NewIcon />

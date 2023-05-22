@@ -8,6 +8,15 @@ module.exports = {
           from: { opacity: 0 },
           to: { opacity: 1 },
         },
+        fadeOut: {
+          from: { opacity: 0.5 },
+          to: { opacity: 0 },
+        },
+        skeleton: {
+          '0%': { opacity: 0.7 },
+          '50%': { opacity: 1 },
+          '100%': { opacity: 0.7 },
+        },
         search: {
           '0%': { translate: '0px 0px' },
           '20%': { translate: '10px -5px' },

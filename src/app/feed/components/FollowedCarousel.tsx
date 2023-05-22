@@ -1,21 +1,19 @@
-// components
-import MultiCarousel from '../MultiCarousel';
 import cx from 'classnames';
-
+// components
+import MultiCarousel from '@/components/carousel/MultiCarousel';
+import FollowedSkeleton from '@/components/skeleton/FollowedSkeleton';
 // types
-import { PostType } from '@/service/posts';
+import { PostType } from '@/types/feed';
+// components
 import PostCard from './PostCard';
+//config
+import { CAROUSEL_CLASS } from '@/config/feed';
 
 type Props = {
   data: PostType[];
   onFollow: (userName: string) => void;
   onFollowedId: Set<unknown>;
 };
-
-const CAROUSEL_CLASS = [
-  'overflow-hidden',
-  'ease-in-out duration-700', //
-];
 
 export default function FollowedCarousel(props: Props) {
   const { data, onFollow, onFollowedId } = props;
@@ -29,8 +27,8 @@ export default function FollowedCarousel(props: Props) {
       }
     >
       {data.length ? (
-        <section className="">
-          <div className="flex items-center w-full px-2 py-8">
+        <section className="animate-[fadeIn_0.3s_ease-in-out]">
+          <div className="flex items-center w-full h-[100px] px-2">
             <h1 className="text-xl font-bold">내가 팔로우 한 독서가</h1>
           </div>
           <MultiCarousel>
@@ -45,7 +43,7 @@ export default function FollowedCarousel(props: Props) {
           </MultiCarousel>
         </section>
       ) : (
-        <></> //
+        <FollowedSkeleton /> //
       )}
     </div>
   );

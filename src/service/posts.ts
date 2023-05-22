@@ -1,16 +1,7 @@
 import { readFile } from 'fs/promises';
 import path from 'path';
-
-export type PostType = {
-  id: string;
-  profileImage: string;
-  userName: string;
-  title: string;
-  content: string;
-  date: Date;
-  path: string;
-  follow: boolean;
-};
+// types
+import { PostType } from '@/types/feed';
 
 export async function getAllPosts(): Promise<PostType[]> {
   const filePath = path.join(process.cwd(), 'data', 'posts.json');

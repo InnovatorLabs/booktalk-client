@@ -1,5 +1,8 @@
-import { PostType } from '@/service/posts';
+// types
+import { PostType } from '@/types/feed';
+// components
 import PostCard from './PostCard';
+import SearchInput from '@/components/input/SearchInput';
 
 type Props = {
   postTitle?: string;
@@ -14,11 +17,12 @@ export default function PostGrid(props: Props) {
   return (
     <>
       {postTitle && (
-        <div className="flex items-center w-full px-2 py-8">
+        <div className="flex justify-between items-center w-full h-[100px] px-2">
           <h1 className="text-xl font-bold">{postTitle}</h1>
+          <SearchInput />
         </div>
       )}
-      <ul className="grid gap-2 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+      <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {posts?.map(post => (
           <li key={post.id} className="mb-20">
             <PostCard

@@ -1,22 +1,22 @@
 'use client';
-
 import React from 'react';
 import { useRouter } from 'next/navigation';
-import { TextField, InputAdornment } from '@mui/material';
-import {
-  AiFillEye,
-  AiFillEyeInvisible,
-  AiFillCloseCircle,
-} from 'react-icons/ai';
 import { RiKakaoTalkFill } from 'react-icons/ri';
 import { SiNaver } from 'react-icons/si';
 import { FcGoogle } from 'react-icons/fc';
+// components
+import TextInput from '@/components/input/TextInput';
+// types
+import { LoginFormType } from '@/types/auth';
+// icons
+import FillEyeIcon from '@/components/icons/FillEyeIcon';
+import FillEyeInvisibleIcon from '@/components/icons/FillEyeInvisibleIcon';
 
 export default function LoginPage() {
   const router = useRouter();
 
-  const [showPwd, setShowPwd] = React.useState(false);
-  const [form, setForm] = React.useState({
+  const [showPwd, setShowPwd] = React.useState<boolean>(false);
+  const [form, setForm] = React.useState<LoginFormType>({
     email: '',
     password: '',
   });
@@ -43,66 +43,35 @@ export default function LoginPage() {
             </p>
             <p>혼자서 하는 독서를 넘어 독서 모임까지 Booktok과 함께 하세요.</p>
           </article>
-          <div className="flex flex-col text-center py-10 gap-2">
-            <TextField
+          <div className="flex flex-col text-center pt-6 pb-10">
+            <TextInput
               name="email"
               type="text"
-              autoComplete="off"
-              size="medium"
               value={form.email}
               onChange={handleFormChange}
-              InputLabelProps={{ style: { fontSize: '0.8rem' } }}
               label="이메일"
-              InputProps={{
-                endAdornment: (
-                  <InputAdornment position="end" className="gap-2">
-                    <button
-                      type="reset"
-                      onClick={() => handleFormReset('email')}
-                    >
-                      {form.email && (
-                        <AiFillCloseCircle size={22} color="#C4C4C4" />
-                      )}
-                    </button>
-                  </InputAdornment>
-                ),
-              }}
+              onReset={handleFormReset}
             />
-            <TextField
+            <TextInput
               name="password"
               type={showPwd ? 'text' : 'password'}
-              autoComplete="off"
-              size="medium"
               value={form.password}
               onChange={handleFormChange}
-              InputLabelProps={{ style: { fontSize: '0.8rem' } }}
               label="비밀번호"
-              InputProps={{
-                endAdornment: (
-                  <InputAdornment position="end" className="gap-2">
-                    <div
-                      className="cursor-pointer"
-                      onClick={() => setShowPwd(!showPwd)}
-                    >
-                      {showPwd ? (
-                        <AiFillEye size={30} color="#C4C4C4" />
-                      ) : (
-                        <AiFillEyeInvisible size={30} color="#C4C4C4" />
-                      )}
-                    </div>
-                    <button
-                      type="reset"
-                      onClick={() => handleFormReset('password')}
-                    >
-                      {form.password && (
-                        <AiFillCloseCircle size={22} color="#C4C4C4" />
-                      )}
-                    </button>
-                  </InputAdornment>
-                ),
-              }}
+              onReset={handleFormReset}
+              endAdornment={
+                <div
+                  className="cursor-pointer"
+                  onClick={() => setShowPwd(!showPwd)}
+                >
+                  {showPwd ? <FillEyeIcon /> : <FillEyeInvisibleIcon />}
+                </div>
+              }
             />
-            <button type="submit" className="h-[60px] rounded-md mt-2">
+            <button
+              type="submit"
+              className="h-[60px] rounded-md mt-2 bg-[#89CFF0] text-white hover:brightness-110"
+            >
               이메일로 로그인하기
             </button>
             <ul className="flex justify-center gap-10 py-4">
