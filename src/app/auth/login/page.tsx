@@ -8,14 +8,10 @@ import { FcGoogle } from 'react-icons/fc';
 import TextInput from '@/components/input/TextInput';
 // types
 import { LoginFormType } from '@/types/auth';
-// icons
-import FillEyeIcon from '@/components/icons/FillEyeIcon';
-import FillEyeInvisibleIcon from '@/components/icons/FillEyeInvisibleIcon';
 
 export default function LoginPage() {
   const router = useRouter();
 
-  const [showPwd, setShowPwd] = React.useState<boolean>(false);
   const [form, setForm] = React.useState<LoginFormType>({
     email: '',
     password: '',
@@ -54,19 +50,11 @@ export default function LoginPage() {
             />
             <TextInput
               name="password"
-              type={showPwd ? 'text' : 'password'}
+              type="password"
               value={form.password}
               onChange={handleFormChange}
               label="비밀번호"
               onReset={handleFormReset}
-              endAdornment={
-                <div
-                  className="cursor-pointer"
-                  onClick={() => setShowPwd(!showPwd)}
-                >
-                  {showPwd ? <FillEyeIcon /> : <FillEyeInvisibleIcon />}
-                </div>
-              }
             />
             <button
               type="submit"

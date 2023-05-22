@@ -5,6 +5,9 @@ import cx from 'classnames';
 import CloseCircleIcon from '../icons/CloseCircleIcon';
 // config
 import { SIGNUP_ANIMATION_CLASS } from '@/config/auth';
+// icons
+import FillEyeIcon from '@/components/icons/FillEyeIcon';
+import FillEyeInvisibleIcon from '@/components/icons/FillEyeInvisibleIcon';
 
 type Props = {
   readonly?: boolean;
@@ -35,8 +38,14 @@ function TextInput(props: Props, ref: React.ForwardedRef<unknown>) {
     delay,
   } = props;
 
+  const [showPassword, setShowPassword] = React.useState<boolean>(false);
   const [hover, setHover] = React.useState<boolean>(false);
   const [focus, setFocus] = React.useState<boolean>(false);
+
+  const isType = showPassword ? 'text' : type;
+  const isEyeIcon = [
+    'password', //
+  ].some(item => item === type);
 
   return (
     <TextField
@@ -59,7 +68,7 @@ function TextInput(props: Props, ref: React.ForwardedRef<unknown>) {
       onFocus={() => setFocus(true)}
       onBlur={() => setFocus(false)}
       name={name}
-      type={type}
+      type={isType}
       autoComplete="off"
       size="medium"
       value={value}
@@ -75,6 +84,7 @@ function TextInput(props: Props, ref: React.ForwardedRef<unknown>) {
         },
         endAdornment: (
           <InputAdornment position="end" className="gap-2">
+            {endAdornment}
             {readonly ? (
               <button
                 className="text-[#D9D9D9]"
@@ -89,7 +99,14 @@ function TextInput(props: Props, ref: React.ForwardedRef<unknown>) {
             ) : (
               <></>
             )}
-            {endAdornment}
+            {isEyeIcon && (
+              <div
+                className="cursor-pointer"
+                onClick={() => setShowPassword(!showPassword)}
+              >
+                {showPassword ? <FillEyeIcon /> : <FillEyeInvisibleIcon />}
+              </div>
+            )}
           </InputAdornment>
         ),
       }}

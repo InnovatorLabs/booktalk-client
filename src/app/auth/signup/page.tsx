@@ -16,9 +16,6 @@ import {
   SIGNUP_ANIMATION_CLASS,
   CONFIRM_LIMIT, //
 } from '@/config/auth';
-// icons
-import FillEyeIcon from '@/components/icons/FillEyeIcon';
-import FillEyeInvisibleIcon from '@/components/icons/FillEyeInvisibleIcon';
 
 const initialFormState = {
   email: '',
@@ -30,30 +27,31 @@ const initialFormState = {
 export default function SignupPage() {
   const [form, setForm] = React.useState<SignupType>(initialFormState);
   const [step, setStep] = React.useState<number>(1);
-  const [confirmEmail, setConfirmEmail] = React.useState<string | number>('');
-  const [showPwd, setShowPwd] = React.useState<boolean>(false);
+  const [confirmNumber, setConfirmNumber] = React.useState<string | number>('');
   const [checkedById, setCheckedById] = React.useState<Set<string>>(new Set());
 
   const emailInputRef = React.useRef<HTMLInputElement>(null);
   const confirmInputRef = React.useRef<HTMLInputElement>(null);
   const passwordInputRef = React.useRef<HTMLInputElement>(null);
 
-  const isLimit = confirmEmail.toString().length >= CONFIRM_LIMIT;
+  const isLimit = confirmNumber.toString().length >= CONFIRM_LIMIT;
 
   const handleFormChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setForm({ ...form, [name]: value });
   };
 
-  const handleConfirmEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleConfirmNumberChange = (
+    e: React.ChangeEvent<HTMLInputElement>,
+  ) => {
     const { value } = e.target;
     const isValidNumber = /^-?\d*\.?\d+$/.test(value);
     if (!isValidNumber) {
-      setConfirmEmail(value.slice(0, -1));
+      setConfirmNumber(value.slice(0, -1));
       return;
     }
     if (!isLimit || value.length < CONFIRM_LIMIT) {
-      setConfirmEmail(value);
+      setConfirmNumber(value);
     }
   };
 
@@ -177,29 +175,21 @@ export default function SignupPage() {
               />
               <ConfirmInput
                 ref={confirmInputRef}
-                value={confirmEmail}
-                onChange={handleConfirmEmailChange}
+                value={confirmNumber}
+                onChange={handleConfirmNumberChange}
                 limit={CONFIRM_LIMIT}
                 invisible={step !== 2}
               />
               <TextInput
                 ref={passwordInputRef}
                 name="password"
-                type={showPwd ? 'text' : 'password'}
+                type="password"
                 value={form.password}
                 onChange={handleFormChange}
                 label="비밀번호"
                 onReset={handleFormReset}
                 invisible={step !== 3}
                 delay={step < 4}
-                endAdornment={
-                  <div
-                    className="cursor-pointer"
-                    onClick={() => setShowPwd(!showPwd)}
-                  >
-                    {showPwd ? <FillEyeIcon /> : <FillEyeInvisibleIcon />}
-                  </div>
-                }
               />
               <TextInput
                 name="passwordConfirm"
