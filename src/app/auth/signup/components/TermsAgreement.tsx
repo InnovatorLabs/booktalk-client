@@ -43,7 +43,7 @@ export default function TermsAgreement(props: Props) {
         invisible
           ? cx(
               SIGNUP_ANIMATION_CLASS,
-              'h-0 flex flex-col w-full gap-2', //
+              'h-0 overflow-hidden flex flex-col w-full gap-2', //
             )
           : cx(
               SIGNUP_ANIMATION_CLASS,

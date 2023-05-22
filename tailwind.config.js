@@ -12,6 +12,10 @@ module.exports = {
           from: { opacity: 0.5 },
           to: { opacity: 0 },
         },
+        fadeOff: {
+          from: { opacity: 0.0 },
+          to: { opacity: 0 },
+        },
         skeleton: {
           '0%': { opacity: 0.7 },
           '50%': { opacity: 1 },
