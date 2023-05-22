@@ -9,3 +9,7 @@ export type SignupType = {
   passwordConfirm: string;
   nickName: string;
 };
+
+export interface ISignupErrorMsg extends SignupType {
+  confirm: string;
+}

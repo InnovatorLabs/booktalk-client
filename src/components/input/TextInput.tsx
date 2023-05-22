@@ -21,6 +21,7 @@ type Props = {
   placeholder?: string;
   invisible?: boolean;
   delay?: boolean;
+  errorMsg?: string;
 };
 
 function TextInput(props: Props, ref: React.ForwardedRef<unknown>) {
@@ -36,6 +37,7 @@ function TextInput(props: Props, ref: React.ForwardedRef<unknown>) {
     placeholder,
     invisible,
     delay,
+    errorMsg,
   } = props;
 
   const [showPassword, setShowPassword] = React.useState<boolean>(false);
@@ -48,75 +50,83 @@ function TextInput(props: Props, ref: React.ForwardedRef<unknown>) {
   ].some(item => item === type);
 
   return (
-    <TextField
-      inputRef={ref}
-      className={
-        invisible
-          ? cx(
-              SIGNUP_ANIMATION_CLASS,
-              'h-0 overflow-hidden animate-[fadeOut_0.5s_ease-in-out]',
-            )
-          : delay
-          ? cx(
-              SIGNUP_ANIMATION_CLASS,
-              'h-[68px] delay-500 animate-[fadeIn_1.3s_ease-in-out]',
-            )
-          : cx(SIGNUP_ANIMATION_CLASS, 'h-[68px]')
-      }
-      onMouseOver={() => setHover(true)}
-      onMouseOut={() => setHover(false)}
-      onFocus={() => setFocus(true)}
-      onBlur={() => setFocus(false)}
-      name={name}
-      type={isType}
-      autoComplete="off"
-      size="medium"
-      value={value}
-      onChange={onChange}
-      InputLabelProps={{ style: { fontSize: '0.8rem' } }}
-      label={label}
-      placeholder={placeholder}
-      InputProps={{
-        readOnly: readonly,
-        style: {
-          color: readonly ? '#adadad' : undefined,
-          background: readonly ? '#f7f7f7' : undefined,
-        },
-        endAdornment: (
-          <InputAdornment position="end" className="gap-2">
-            {endAdornment}
-            {readonly ? (
-              <button
-                className="text-[#D9D9D9]"
-                tabIndex={-1}
-                onClick={() => window.location.reload()}
-              >
-                변경하기
-              </button>
-            ) : hover || focus ? (
-              <button
-                type="reset"
-                tabIndex={-1}
-                onClick={() => onReset(name)} //
-              >
-                {value && <CloseCircleIcon />}
-              </button>
-            ) : (
-              <></>
-            )}
-            {isEyeIcon && (
-              <div
-                className="cursor-pointer"
-                tabIndex={-1}
-                onClick={() => setShowPassword(!showPassword)}
-              >
-                {showPassword ? <FillEyeIcon /> : <FillEyeInvisibleIcon />}
-              </div>
-            )}
-          </InputAdornment>
-        ),
-      }}
-    />
+    <>
+      <TextField
+        inputRef={ref}
+        className={
+          invisible
+            ? cx(
+                SIGNUP_ANIMATION_CLASS,
+                'h-0 overflow-hidden animate-[fadeOut_0.5s_ease-in-out]',
+              )
+            : delay
+            ? cx(
+                SIGNUP_ANIMATION_CLASS,
+                'h-[68px] delay-500 animate-[fadeIn_1.3s_ease-in-out]',
+              )
+            : cx(SIGNUP_ANIMATION_CLASS, 'h-[68px]')
+        }
+        onMouseOver={() => setHover(true)}
+        onMouseOut={() => setHover(false)}
+        onFocus={() => setFocus(true)}
+        onBlur={() => setFocus(false)}
+        name={name}
+        type={isType}
+        autoComplete="off"
+        size="medium"
+        value={value}
+        onChange={onChange}
+        InputLabelProps={{ style: { fontSize: '0.8rem' } }}
+        label={label}
+        placeholder={placeholder}
+        error={!!errorMsg}
+        InputProps={{
+          readOnly: readonly,
+          style: {
+            color: readonly ? '#adadad' : undefined,
+            background: readonly ? '#f7f7f7' : undefined,
+          },
+          endAdornment: (
+            <InputAdornment position="end" className="gap-2">
+              {endAdornment}
+              {readonly ? (
+                <button
+                  className="text-[#D9D9D9]"
+                  tabIndex={-1}
+                  onClick={() => window.location.reload()}
+                >
+                  변경하기
+                </button>
+              ) : hover || focus ? (
+                <button
+                  type="reset"
+                  tabIndex={-1}
+                  onClick={() => onReset(name)} //
+                >
+                  {value && <CloseCircleIcon />}
+                </button>
+              ) : (
+                <></>
+              )}
+              {isEyeIcon && (
+                <div
+                  className="cursor-pointer"
+                  tabIndex={-1}
+                  onClick={() => setShowPassword(!showPassword)}
+                >
+                  {showPassword ? <FillEyeIcon /> : <FillEyeInvisibleIcon />}
+                </div>
+              )}
+            </InputAdornment>
+          ),
+        }}
+      />
+      {errorMsg && (
+        <div className="self-start text-[10px] h-[30px] font-[600] pl-2 text-[#B22212] mt-[-8px]">
+          {errorMsg}
+        </div>
+      )}
+    </>
   );
 }
 
