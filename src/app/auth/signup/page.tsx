@@ -13,6 +13,7 @@ import {
   STEP_LEVEL,
   SUBMIT_BUTTON_CLASS,
   TERMS_AGREEMENT_TYPE,
+  SIGNUP_ANIMATION_CLASS,
   CONFIRM_LIMIT, //
 } from '@/config/auth';
 // icons
@@ -110,8 +111,14 @@ export default function SignupPage() {
           <article
             className={
               step !== 4
-                ? 'flex flex-col gap-3' //
-                : 'hidden'
+                ? cx(
+                    SIGNUP_ANIMATION_CLASS, //
+                    'h-[68px] flex flex-col gap-3',
+                  )
+                : cx(
+                    SIGNUP_ANIMATION_CLASS,
+                    'h-[0] overflow-hidden animate-[fadeOff_5s_ease-in-out]',
+                  )
             }
           >
             <p className="font-semibold">
