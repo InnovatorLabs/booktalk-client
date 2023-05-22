@@ -34,6 +34,10 @@ export default function SignupPage() {
   const [showPwd, setShowPwd] = React.useState<boolean>(false);
   const [checkedById, setCheckedById] = React.useState<Set<string>>(new Set());
 
+  const emailInputRef = React.useRef<HTMLInputElement>(null);
+  const confirmInputRef = React.useRef<HTMLInputElement>(null);
+  const passwordInputRef = React.useRef<HTMLInputElement>(null);
+
   const isLimit = confirmEmail.toString().length >= CONFIRM_LIMIT;
 
   const handleFormChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -97,6 +101,35 @@ export default function SignupPage() {
     return { active, text };
   };
 
+  const handleSignupKeydownEvent = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter' && validationOfSubmitButton(step).active) {
+      handleFormSubmit();
+    }
+  };
+
+  React.useEffect(() => {
+    const makeInputRefFocus = () => {
+      switch (step) {
+        case 1:
+          setTimeout(() => {
+            emailInputRef?.current && emailInputRef.current.focus();
+          }, 0);
+          break;
+        case 2:
+          setTimeout(() => {
+            confirmInputRef?.current && confirmInputRef.current.focus();
+          }, 600);
+          break;
+        case 3:
+          setTimeout(() => {
+            passwordInputRef?.current && passwordInputRef.current.focus();
+          }, 1000);
+          break;
+      }
+    };
+    makeInputRefFocus();
+  }, [step]);
+
   return (
     <section className="flex justify-center py-28">
       <div className="w-2/5 border shadow rounded-md">
@@ -127,8 +160,12 @@ export default function SignupPage() {
             <p>혼자서 하는 독서를 넘어 독서 모임까지 Booktok과 함께 하세요.</p>
           </article>
           <div className="flex flex-col text-center pt-8 pb-10">
-            <article className="flex flex-col overflow-hidden pt-2">
+            <article
+              className="flex flex-col overflow-hidden pt-2"
+              onKeyDown={e => handleSignupKeydownEvent(e)}
+            >
               <TextInput
+                ref={emailInputRef}
                 readonly={step > 1}
                 name="email"
                 type="text"
@@ -139,12 +176,14 @@ export default function SignupPage() {
                 invisible={step >= 4}
               />
               <ConfirmInput
+                ref={confirmInputRef}
                 value={confirmEmail}
                 onChange={handleConfirmEmailChange}
                 limit={CONFIRM_LIMIT}
                 invisible={step !== 2}
               />
               <TextInput
+                ref={passwordInputRef}
                 name="password"
                 type={showPwd ? 'text' : 'password'}
                 value={form.password}

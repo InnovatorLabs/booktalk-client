@@ -20,7 +20,7 @@ type Props = {
   delay?: boolean;
 };
 
-export default function TextInput(props: Props) {
+function TextInput(props: Props, ref: React.ForwardedRef<unknown>) {
   const {
     readonly,
     name,
@@ -40,6 +40,7 @@ export default function TextInput(props: Props) {
 
   return (
     <TextField
+      inputRef={ref}
       className={
         invisible
           ? cx(
@@ -95,3 +96,5 @@ export default function TextInput(props: Props) {
     />
   );
 }
+
+export default React.forwardRef(TextInput);

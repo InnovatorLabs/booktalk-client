@@ -16,7 +16,7 @@ type Props = {
   invisible?: boolean;
 };
 
-export default function ConfirmInput(props: Props) {
+function ConfirmInput(props: Props, ref: React.ForwardedRef<unknown>) {
   const { value, onChange, limit, invisible } = props;
 
   const [active, setActive] = React.useState<boolean>(false);
@@ -51,6 +51,7 @@ export default function ConfirmInput(props: Props) {
 
   return (
     <TextField
+      inputRef={ref}
       className={
         invisible
           ? cx(SIGNUP_ANIMATION_CLASS, 'h-0 overflow-hidden')
@@ -96,3 +97,5 @@ export default function ConfirmInput(props: Props) {
     />
   );
 }
+
+export default React.forwardRef(ConfirmInput);
